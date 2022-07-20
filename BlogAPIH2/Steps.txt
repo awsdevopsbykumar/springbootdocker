@@ -1,8 +1,12 @@
 cd /opt/
 
-sudo yum install java-1.8.0-devel
+yum install git -y
+
+sudo yum install java-1.8.0-devel -y
 sudo /usr/sbin/alternatives --config java
 sudo /usr/sbin/alternatives --config javac
+
+yum erase maven -y
 
 wget https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
 ls -ltr
@@ -14,6 +18,10 @@ source ~/.bash_profile
 
 java
 javac
+
+git clone https://github.com/awsdevopsbykumar/springbootdocker.git
+cd springbootdocker/BlogAPIH2
+
 mvn clean package -DskipTest
 
 docker login
